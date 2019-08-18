@@ -10,12 +10,13 @@ enum CarBody: String {
     case truck = "Грузовик"
 }
 
-enum DoorOpen {
+enum DoorOpen: String {
 case open, close
 }
 
-enum Transmission {
-    case manual, auto
+enum Transmission: String {
+    case manual = "Механика"
+    case auto = "Автомат"
 }
 
 enum EngineRunning {
@@ -23,31 +24,43 @@ enum EngineRunning {
 }
 
 enum WindowsOpen: String {
-    case open = "Окна открыты"
-    case closed = "Окна закрыты"
-    case ajar = "Окна приоткрыты"
+    case open = "Открыты"
+    case closed = "Закрыты"
+    case ajar = "Приоткрыты"
     case openDriversWindow = "Открыто окно со стороны водителя. Он, наверное, курит! Ай-яй-яй, как нехорошо!"
+}
+
+enum TrunkVolume: String {
+    case extraLarge = "Очень большой"
+    case large = "Большой"
+    case middle = "Средний"
+    case small = "Маленький"
+    case extraSmall = "Очень маленький"
 }
 
 
 struct Car {
     
     let carBrand: String
-    let yearOfIssue: Int
     let carBody: CarBody
-    let carcolor: UIColor
-    let door: Int
-    var environmentalClass: Int
+    let yearOfIssue: Int
+    let carcolor:  
+    var km: Double
+    var transmission: Transmission
+    var trunkVolume: TrunkVolume
     var engineRunning: EngineRunning
     var windowsOpen: WindowsOpen
     var doorOpen: DoorOpen
-    var transmission: Transmission
-    var km: Double
+    var trunkFilledUp: Int
+    
+    var description: String {
+        return "Марка машины: \(carBrand)\nКузов автомобиля: \(carBody.rawValue)\nГод выпуска: \(yearOfIssue) \nЦвет машины: \(carcolor)\nПробег: \(km) \nКоробка передач: \(transmission.rawValue) \nОбъём багажника: \(trunkVolume.rawValue) \nДвигатель в положении: \(engineRunning) \nОкна: \(windowsOpen.rawValue) \nДвери в положении: \(doorOpen.rawValue) \nЗаполненный объем багажника: \(trunkFilledUp)%"
+    }
 }
 
-var car1 = Car(carBrand: "Ситроен", yearOfIssue: 2011, carBody: .hatchback, carcolor: .black, door: 3, environmentalClass: 4, engineRunning: .stop, windowsOpen: .closed, doorOpen: .close, transmission: .auto, km: 150170.50)
+var car1 = Car(carBrand: "BMW", carBody: .coupe, yearOfIssue: 2019, carcolor: .orange, km: 210.50, transmission: .auto, trunkVolume: .middle, engineRunning: .stop, windowsOpen: .closed, doorOpen: .close, trunkFilledUp: 50)
 
-var car2 = Car(carBrand: "Какая-то большая фура", yearOfIssue: 2018, carBody: .truck, carcolor: .yellow, door: 2, environmentalClass: 2, engineRunning: .start, windowsOpen: .openDriversWindow, doorOpen: .close, transmission: .manual, km: 121.50)
+print(car1.description)
 
 
 
