@@ -193,18 +193,18 @@ class TrunkCar: Car {
 
 
 
-var sportCar: SportCar? = SportCar(carBrand: "Porsche GT3 RS", carBody: .coupe, yearOfIssue: 2015, carColor: .red, km: 20000.0, transmission: .manual, trunkVolume: .extraSmall, engineRunning: .stop, windowsOpen: .closed, doorOpen: .close, trunkFilledUp: 0, spoiler: "Есть", sportsSuspension: "установлена", sportsBrakeSystem: "Заводская комплектация", sportsWheels: 4)
+var sportCar: SportCar = SportCar(carBrand: "Porsche GT3 RS", carBody: .coupe, yearOfIssue: 2015, carColor: .red, km: 20000.0, transmission: .manual, trunkVolume: .extraSmall, engineRunning: .stop, windowsOpen: .closed, doorOpen: .close, trunkFilledUp: 0, spoiler: "Есть", sportsSuspension: "установлена", sportsBrakeSystem: "Заводская комплектация", sportsWheels: 4)
 
-var trunkCar: TrunkCar? = TrunkCar(carBrand: "Mercedes-Benz Actros", carBody: .truck, yearOfIssue: 2011, carColor: .silver, km: 350000.0, transmission: .auto, trunkVolume: .extraLarge, engineRunning: .start, windowsOpen: .openDriversWindow, doorOpen: .close, trunkFilledUp: 50, transports: sportCar!, trailer: "отсутствует", trunkWheels: 6)
+var trunkCar: TrunkCar = TrunkCar(carBrand: "Mercedes-Benz Actros", carBody: .truck, yearOfIssue: 2011, carColor: .silver, km: 350000.0, transmission: .auto, trunkVolume: .extraLarge, engineRunning: .start, windowsOpen: .openDriversWindow, doorOpen: .close, trunkFilledUp: 50, transports: sportCar, trailer: "отсутствует", trunkWheels: 6)
 
-sportCar!.transported = trunkCar
+sportCar.transported = trunkCar
 
 print("ОПИСАНИЕ СПОРТКАРА:")
-print(sportCar!.description)
-sportCar!.goToDrive()
-sportCar!.takesUpgradeInWorkshop()
+print(sportCar.description)
+sportCar.goToDrive()
+sportCar.takesUpgradeInWorkshop()
 print("")
 print("ОПИСАНИЕ ГРУЗОВИКА:")
-print(trunkCar!.description)
-trunkCar!.goToDrive()
-trunkCar!.makeSafer()
+print(trunkCar.description)
+trunkCar.goToDrive()
+trunkCar.makeSafer()
